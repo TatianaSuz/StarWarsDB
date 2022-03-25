@@ -14,9 +14,13 @@ export default class RandomPlanet extends Component {
         error: false,
     }
 
-    constructor() {
-        super();
+    componentDidMount() {
         this.updatePlanet()
+        this.interval = setInterval(this.updatePlanet, 5000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
     }
 
     onPlanetLoaded = (planet) => {
@@ -27,7 +31,7 @@ export default class RandomPlanet extends Component {
         this.setState({error: true, loading: false})
     }
 
-    updatePlanet() {
+    updatePlanet = () => {
         const id = Math.floor(Math.random() * 16) + 2
         this.swapiService.getPlanet(id).then(this.onPlanetLoaded)
             .catch(this.onError)
@@ -62,7 +66,7 @@ const PlanetView = ({planet}) => {
             diameter} = planet;
     return (
         <Fragment>
-            <img alt=' Download...' className="planet-image"
+            <img alt='Appearance unknown' className="planet-image"
                  src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
             <div>
                 <h4>{name}</h4>
