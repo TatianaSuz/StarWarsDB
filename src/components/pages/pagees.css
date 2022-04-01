@@ -1,0 +1,23 @@
+.page {
+    display: flex;
+    padding: 1rem;
+    background-color: #303030;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    min-height: 140px;
+    border-radius: 0.25rem;
+}
+
+.btn-login {
+    color: #ffffff;
+    background-color: #055b46;
+    border: 1px solid transparent;
+    border-color: #055b46;
+    display: inline-flex;
+    line-height: 1.5;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
